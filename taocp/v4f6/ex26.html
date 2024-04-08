@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hello World!</title>
+    <link href="../taocp.css" rel="stylesheet" type="text/css">
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <h1>Exercise 26:</h1>
+    <b>Question:</b>
+    <p>
+        Prove that Sinz's clauses (18) and (19) enforce the cardinality constraint \(x_{1} + \cdots + x_{n} \leq r\). 
+        <i>Hint</i>: Show that they imply \(s_{j}^{k} = 1\) whenever \(x_{1} + \cdots + x_{j+k-1} \geq k\).
+    </p>
+
+    <b>Proof:</b>
+    <p>
+        The Sinz's clauses are 
+        \begin{gather}
+        \left( \bar{s}_{j}^{k} \lor s_{j+1}^{k} \right), && \text{for \(1 \leq j \leq n-r\) and \(1 \leq k \leq r\)} \tag{18} \\
+        \left( \bar{x}_{j+k} \lor \bar{s}_{j}^{k} \lor s_{j}^{k+1} \right), && \text{for \(1 \leq j \leq n-r\) and \(0 \leq k \leq r\)} \tag{19}
+        \end{gather}
+        , where \bar{s}_{j}^{k} is omitted when \(k = 0\) and \(s_{j}^{k+1}\) is omitted when \(k = r\).
+        <br><br>
+
+        First, we need to prove that (18), (19), and \(x_{1} + \cdots + x_{j+k-1} \geq k\) imply \(s_{j}^{k} = 1\), and the proof
+        follows the induction on \(j\) and \(k\). Let's start with \(j\).
+
+        <br><br>
+        The Base case for \(j\) is \(j = 1\). Thus, \(x_{1} + \cdots + x_{j+k-1} \geq k\) becomes \(x_{1} + \cdots + x_{k} \geq k\).
+        Obviously, \(x_{1} = x_{2} = \cdots = x_{k} = 1\). If we let \(j = 1, k = 0\) in (19), we have \( \left( \bar{x}_{1} \lor s_{1}^{1} \right) \).
+        Since \( x_{1} = 1\), \( s_{1}^{1}\) must be \(1\). Thus, we prove the base case.
+
+        <br><br>
+        Next we will prove the induction case. Assume we have \(x_{1} + \cdots + x_{j+k-1} \geq k\) and \( s_{j}^{k} = 1\), we want to prove if \(x_{1} + \cdots + x_{j+k} \geq k\),
+        then \( s_{j+1}^{k} = 1\). Since \( s_{j}^{k} = 1\), by (18), \( s_{j+1}^{k} = 1\).
+        
+        
+    </p>
+
+    <a href="../taocpIndex.html">Back to all answers</a>
+
+</body>
+
+</html>
