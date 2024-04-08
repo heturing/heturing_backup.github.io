@@ -44,6 +44,22 @@
         <br><br>
         Next we will prove the induction case. Assume we have \(x_{1} + \cdots + x_{j+k-1} \geq k\) and \( s_{j}^{k} = 1\), we want to prove if \(x_{1} + \cdots + x_{j+k} \geq k\),
         then \( s_{j+1}^{k} = 1\). Since \( s_{j}^{k} = 1\), by (18), \( s_{j+1}^{k} = 1\).
+
+        <br><br>
+        Next, we prove the case of \(k\). The base case is \(k = 1\), and \(x_{1} + \cdots + x_{j} \geq 1\), which means at least
+        one \(x_{i} = 1, i \in [1,j]\). If we let \(k = 0 \) in (19), we have \(\left( \bar{x}_{i} \lor s_{i}^{1} \right) \),
+        thus \(s_{i}^{1} = 1\). By induction on \( j \), we have \(s_{i+1}^{1} = 1, \cdots, s_{j}^{1} = 1\). Thus we prove the base case.
+
+        <br><br>
+        For the induction case, if we have \(x_{1} + \cdots + x_{j+k-1} \geq k\), \(s_{j}^{k} = 1\), and \(x_{1} + \cdots + x_{j+k} \geq k+1\),
+        we want to prove \(s_{j}^{k+1} = 1\). There can be two cases here. First, \(x_{1} + \cdots + x_{j+k-1} = k\), then \(x_{j+k} = 1\).
+        And \(s_{j}^{k+1} = 1\) by (19). Second, \(x_{1} + \cdots + x_{j+k-1} \geq k+1\), thus \(s_{j-1}^{k+1} = 1\). And by induction on
+        \(j\), we have \(s_{j}^{k+1} = 1\).
+
+        <br><br>
+        By far, we know that \(s_{j}^{k} = 1\) if \(x_{1} + \cdots + x_{j+k-1} \geq k\). Thus, if \(s_{n-r}^{r} = 1\), then
+        \(x_{1} + \cdots + x_{n} \geq r\). And by definition of (18), we have \(\bar{s}_{n-r}^{r}\), which means \(s_{n-r}^{r} = 0\). Thus, 
+        (18) and (19) assure \(x_{1} + \cdots + x_{j+k-1} < k\).
         
         
     </p>
