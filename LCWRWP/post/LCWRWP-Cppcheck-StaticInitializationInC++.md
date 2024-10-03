@@ -32,7 +32,22 @@ a few years.
 
 So when I start to read the source code of Cppcheck, I notice that there is an option "--doc" that does not have too much comments.
 
-|![docOption.png](../data/image/docOption.png)|
+```c++
+if (std::strcmp(argv[i], "--doc") == 0) {
+    std::ostringstream doc;
+    // Get documentation..
+    for (const Check * it : Check::instances()) {
+        const std::string& name(it->name());
+        const std::string info(it->classInfo());
+        if (!name.empty() && !info.empty())
+            doc << "## " << name << " ##\n"
+                << info << "\n";
+    }
+
+    mLogger.printRaw(doc.str());
+    return Result::Exit;
+}
+```
 
 The code itself is pretty simple, and it seems like the option "--doc" is to output some documentation of the checks run by Cppcheck.
 But when I check the inner for loop, the `Check::instances()` part catchs my attention. Under the hood, the function is a static function that returns a static variables `_instances` which is just defined by the function itself.
